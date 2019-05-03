@@ -10,21 +10,24 @@
  
   <br>
  
-  <label>Choose an existing Owner:</label>
+  <label>Choose an existing owner:</label>
 
-  <%@owner do |pet|%>
-  <%binding.pry%>
-    <input type="checkbox" name="owner[pet_ids][]" id="<%= owner.id%>" value="<%=owner.id%>" <%='checked' if @owner.pets.include?(pet) %>><%=pet.name%></input>
+  <%@owners.each do |owner|%>  
+  
+  <input type="checkbox" name="owner[pet_ids][]" id="<%=@owner.id%>" value="<%=@owner.id%>" <%='checked' if @owner.pets.include?(owner) %>><%=@owner.name%>
+  	
+  </input>
+
   <%end%>
 
   <br>
  
-  <label>and/or, create a new pet:</label>
+  <label>Create a new owner:</label>
   <br>
-  <label>name:</label>
+  <label>Name:</label>
     <input  type="text" name="owner[name]" id="owner_name"></input>
   <br>
-  <input type="submit" value="Update Owner">
+  <input type="submit" value="Update Pet">
 
 </form>
 
